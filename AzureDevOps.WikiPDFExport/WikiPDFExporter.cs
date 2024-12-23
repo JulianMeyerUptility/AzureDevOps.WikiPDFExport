@@ -241,7 +241,8 @@ namespace azuredevops_export_wiki
                     File.WriteAllText(tempHtmlFile.FilePath, html);
                     html = string.Empty;
                     var generator = new PDFGenerator(_options, _logger);
-                    var path = await generator.ConvertHTMLToPDFAsync(tempHtmlFile);
+                    var path = await generator.ConvertHTMLToPDFAsync(tempHtmlFile.FilePath);
+                    
                     if (_options.Debug)
                     {
                         var htmlPath = string.Concat(_options.Output, ".html");

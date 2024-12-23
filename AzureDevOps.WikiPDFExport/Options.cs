@@ -5,6 +5,8 @@ namespace azuredevops_export_wiki
 {
     public class Options
     {
+        public Options() {}
+
         [Option('v', "verbose", Required = false, HelpText = "Set output to verbose messages.")]
         public bool Verbose { get; set; }
 
@@ -58,6 +60,9 @@ namespace azuredevops_export_wiki
 
         [Option("mermaidjs-path", Required = false, HelpText = "Path of the mermaid.js file. It'll be used if mermaid diagrams support is turned on (-m/--mermaid). If not specified, 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.1.6/mermaid.min.js' will be used.")]
         public string MermaidJsPath { get; set; }
+        
+        [Option("mermaid-as-images", Required = false, HelpText = "Export mermaid diagrams as PNGs to /mermaid_diagrams/*.png in output folder.")]
+        public bool RenderMermaidAsImages { get; set; } = false;
 
         [Option("chrome-path", Required = false, HelpText = "Path of the chrome or chromium executable. If not specified, a headless version will be downloaded.")]
         public string ChromeExecutablePath { get; set; }
@@ -83,7 +88,7 @@ namespace azuredevops_export_wiki
         [Option('c', "highlight-code", Required = false, HelpText = "Highlight code blocks using highlight.js")]
         public bool HighlightCode { get; set; }
 
-        [Option("hightlight-style", Required = false, HelpText = "hightlight.js style used for code blocks. Defaults to 'vs'. See https://github.com/highlightjs/highlight.js/tree/main/src/styles for a full list.")]
+        [Option("hightlight-style", Required = false, HelpText = "highlight.js style used for code blocks. Defaults to 'vs'. See https://github.com/highlightjs/highlight.js/tree/main/src/styles for a full list.")]
         public string HighlightStyle { get; set; }
 
         [Option("pat", Required = false, HelpText = "Personal access token used to access your Azure Devops Organization. If no token is provided and organization and project parameters are provided, it will start a prompt asking you to login.")]

@@ -1,3 +1,5 @@
+#nullable enable
+
 using Markdig;
 using Markdig.Helpers;
 using Markdig.Parsers;
